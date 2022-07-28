@@ -8,25 +8,17 @@ class Main extends Controller
 {
     public function index()
     {
-        // get all items from database
+        // Model
+        $mainModel = new \App\Models\Main_model();
 
-        $data['items'] = $this->getAllItems();
+        // get all items from database   
+        $data['items'] = $mainModel->getAll();
 
         // display the homepage
         return view('home', $data);
     }
 
-    public function newItem(){
+    
 
-    }
 
-    public function getAllItems(){
-      
-        $db = db_connect();
-        $dados = $db->query("SELECT * FROM list")->getResultObject();
-        $db->close();
-
-        return $dados;
-        
-    }
 }
