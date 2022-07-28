@@ -17,18 +17,20 @@
 <hr>
 
 <?php if(count($items) == 0) : ?>
-    <p>Não foram encontrados registros.</p>
+    <p class="text-center">Não foram encontrados registros.</p>
 <?php else:?>
     <table class="table table-striped table-sm">
     <thead class="thead-light">
         <tr>
-            <th colspan="3" class="text-center">Item</th>
+            <th colspan="2" class="text-center">Itens</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
       <?php foreach($items as $item) :?>
         <tr>
             <td class="text-center"> <?= $item->item?> </td>
+            <td>[ações]</td>
         </tr>
       <?php endforeach;?>
     </tbody>
