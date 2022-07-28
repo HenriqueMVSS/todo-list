@@ -15,34 +15,28 @@
     </div>
 </header>
 <hr>
-<table class="table table-striped table-sm">
+
+<?php if(count($items) == 0) : ?>
+    <p>Não foram encontrados registros.</p>
+<?php else:?>
+    <table class="table table-striped table-sm">
     <thead class="thead-light">
         <tr>
-            <th>col 1</th>
-            <th>col 2</th>
-            <th>col 3</th>
+            <th colspan="3" class="text-center">Item</th>
         </tr>
     </thead>
     <tbody>
+      <?php foreach($items as $item) :?>
         <tr>
-            <td>col 1</td>
-            <td>col 2</td>
-            <td>col 3</td>
+            <td class="text-center"> <?= $item->item?> </td>
         </tr>
-        <tr>
-            <td>col 1</td>
-            <td>col 2</td>
-            <td>col 3</td>
-        </tr>
-        <tr>
-            <td>col 1</td>
-            <td>col 2</td>
-            <td>col 3</td>
-        </tr>
+      <?php endforeach;?>
     </tbody>
 </table>
 
-N.º de itens: 0
+
+<p> N.º de itens: <strong></strong><?= count($items)?> </p>
+<?php endif;?>
 <hr>
 <footer class="container">
     <div class="row">

@@ -10,14 +10,14 @@ class Main extends Controller
     {
         // get all items from database
 
-        $data['list'] = $this->getAllItems();
+        $data['items'] = $this->getAllItems();
 
         // display the homepage
         return view('home', $data);
     }
 
     public function newItem(){
-        
+
     }
 
     public function getAllItems(){
