@@ -11,6 +11,15 @@
     
     <?= $this->renderSection('conteudo') ?>
 
+    <hr>
+    <footer class="container">
+        <div class="row">
+            <div class="col text-center">
+                TODO List &copy; <?= date('Y') ?>
+            </div>
+        </div>
+    </footer>
+
     <script src="<?= base_url('assets/jquery.slim.min.js')?>"></script>
     <script src="<?= base_url('assets/popper.min.js')?>"></script>
     <script src="<?= base_url('assets/bootstrap.min.js')?>"></script>

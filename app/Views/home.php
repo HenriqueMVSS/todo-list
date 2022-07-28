@@ -7,14 +7,19 @@
         <div class="col-12 text-center">
             <h3 class="p-3">Compras da manhã</h3>
         </div>
-        
-        <div class="p-2 col-14 input-group">
-            <input class="form-control" type="text" placeholder="Your task"><a href="<?=  site_url('main/newItem')?>" class="btn btn-primary">Adicionar</a>            
-        </div>
-       
     </div>
+    
 </header>
 <hr>
+
+<?php
+helper('form');
+echo form_open('main/create')
+?>
+    <div class="p-2 col-5 offset-4 form-group d-flex">
+        <input name="task" id="task" class="form-control mr-1 text-center" type="text" placeholder="Digite seu item"><button type="submit" class="btn btn-primary">Adicionar</button>            
+    </div>
+<?= form_close();?>
 
 <?php if(count($items) == 0) : ?>
     <p class="text-center">Não foram encontrados registros.</p>
@@ -30,7 +35,7 @@
       <?php foreach($items as $item) :?>
         <tr>
             <td class="text-center"> <?= $item->item?> </td>
-            <td>[ações]</td>
+            <td colspan="2">[x][v]</td>
         </tr>
       <?php endforeach;?>
     </tbody>
@@ -39,12 +44,5 @@
 
 <p> N.º de itens: <strong></strong><?= count($items)?> </p>
 <?php endif;?>
-<hr>
-<footer class="container">
-    <div class="row">
-        <div class="col text-center">
-            TODO List &copy; <?= date('Y') ?>
-        </div>
-    </div>
-</footer>
+
 <?= $this->endSection()?>
