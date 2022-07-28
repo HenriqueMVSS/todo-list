@@ -27,15 +27,18 @@ echo form_open('main/create')
     <table class="table table-striped table-sm">
     <thead class="thead-light">
         <tr>
-            <th colspan="2" class="text-center">Itens</th>
-            <th></th>
+            <th colspan="3" class="text-center">Itens</th>
+            <!-- <th></th> -->
         </tr>
     </thead>
     <tbody>
       <?php foreach($items as $item) :?>
         <tr>
             <td class="text-center"> <?= $item->item?> </td>
-            <td colspan="2">[x][v]</td>
+            <td>&nbsp;</td>
+            <td class="text-center"><a href="<?= site_url('main/delete/'. $item->id_item)?>" class="btn btn-danger">x</a>
+            <a href="<?= site_url('main/delete')?>" class="btn btn-success">V</a></td>
+           
         </tr>
       <?php endforeach;?>
     </tbody>

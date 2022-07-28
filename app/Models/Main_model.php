@@ -8,7 +8,7 @@ class Main_model extends Model {
 
     protected $table = 'list';
     protected $id = 'id_item';
-    protected $allowedFields = ['item'];
+    protected $allowedFields = ['item', 'created_at'];
 
     function getAll()
     {

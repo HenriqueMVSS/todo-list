@@ -3,10 +3,11 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
+use CodeIgniter\I18n\Time;
 
 class Main extends Controller
 {   
- 
+
     public function index()
     {
         // Model
@@ -19,18 +20,31 @@ class Main extends Controller
         return view('home', $data);
     }
 
-    public function create(){
+    public function create()
+    {
         $request = \Config\Services::request();
         $mainModel = new \App\Models\Main_model();
+        $myTime = new Time('now', 'America/Sao_Paulo', 'pt_BR');
 
-        $sql = $mainModel->set('item', $request->getPost('task'));
-       
-        $mainModel->insert();
+        $data = [
+            'item'=> $request->getPost('task'),
+            'created_at'=> $myTime
+        ];
+
+        $mainModel->insert($data);
 
         return redirect('/');
     }
 
-    
+    public function delete($id = null)
+    {
+        $mainModel = new \App\Models\Main_model();
 
+        if(is_null($id)){
+            return redirect('/');
+        }else{
+            $mainModel->delete($id);
+        }
+    }  
 
 }

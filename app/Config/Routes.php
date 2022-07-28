@@ -37,6 +37,7 @@ $routes->set404Override();
 // route since we don't have to scan directories.
  $routes->get('/', 'Main::index');
  $routes->post('main/create', 'Main::create');
+ $routes->delete('main/delete', 'Main::delete/(:num)');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
