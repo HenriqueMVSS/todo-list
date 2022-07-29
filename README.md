@@ -1,63 +1,61 @@
-# CodeIgniter 4 Application Starter
+# TODO List feito em CodeIgniter 4
 
-## What is CodeIgniter?
+### Banco sem itens cadastrados retorna a mensagem mostrada abaixo:
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](http://codeigniter.com).
+<img src="./public/assets/img/todo1.png">
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+### Lista com itens retornados do banco de dados. </br>
+<img src="./public/assets/img/todo2.png">
 
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
+## Instalação & atualizações
 
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+`composer create-project codeigniter4/appstarter` then `composer update` em qualquer momento
+há uma nova versão do framework.
 
-## Installation & updates
+Ao atualizar, verifique as notas da versão para ver se há alguma alteração que você precise aplicar
+para sua pasta `app`. Os arquivos afetados podem ser copiados ou mesclados de `vendor/codeigniter4/framework/app`.
+## Configuração
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+Para criação do `banco de dados` utilizar os scripts que estão no arquivo `Seed.sql` que esta localizado na pasta `Seed_Database`.
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+Modifique o `.env_example` para `.env` e adapte para seu aplicativo, especificamente o baseURL e quaisquer configurações de banco de dados.
+## Mudança importante no arquivo index.php
 
-## Setup
+`index.php` não está mais na raiz do projeto! Foi movido para dentro da pasta *public*,
+para melhor segurança e separação de componentes.
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+Isso significa que você deve configurar seu servidor web para "apontar" para a pasta *public* do seu projeto e
+não para a raiz do projeto. Uma prática melhor seria configurar um host virtual para apontar para lá. Uma prática ruim seria apontar seu servidor web para a raiz do projeto e esperar inserir *public/...*, pois o resto de sua lógica e o
+quadro são expostos.
 
-## Important Change with index.php
+**Por favor** leia o guia do usuário para uma melhor explicação de como o CI4 funciona!
+## Requisitos do servidor
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
-
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
-
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Server Requirements
-
-PHP version 7.4 or higher is required, with the following extensions installed:
+O PHP versão 7.4 ou superior é necessário, com as seguintes extensões instaladas:
 
 - [intl](http://php.net/manual/en/intl.requirements.php)
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+- [libcurl](http://php.net/manual/en/curl.requirements.php) se você planeja usar a biblioteca HTTP\CURLRequest
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+Além disso, certifique-se de que as seguintes extensões estejam habilitadas em seu PHP:
 
-- json (enabled by default - don't turn it off)
+- json (habilitado por padrão - não desligue)
 - [mbstring](http://php.net/manual/en/mbstring.installation.php)
 - [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
-- xml (enabled by default - don't turn it off)
+- xml (ativado por padrão - não desligue)
+## Instruções de utilização:
+
+No campo escrito `Digite seu item`, inserir o nome do item que deseja e clica no botão `Adicionar` para inseri-lo na sua lista:
+
+<img src="./public/assets/img/todo3.png">
+
+#### Completar a tarefa:
+
+Para finalizar uma tarefa e defini-la como finalizada, clicar no `botão azul` com o ícone de `checked`:
+
+<img src="./public/assets/img/todo4.png">
+
+#### Deletar uma tarefa:
+
+Para excluir uma tarefa, clicar no `botão vermelho` com o ícone da `lixeira`:
+
+<img src="./public/assets/img/todo5.png">
