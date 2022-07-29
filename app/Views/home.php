@@ -17,7 +17,7 @@ helper('form');
 echo form_open('main/create')
 ?>
     <div class="p-2 col-5 offset-4 form-group d-flex">
-        <input name="task" id="task" class="form-control mr-1 text-center" type="text" placeholder="Digite seu item"><button type="submit" class="btn btn-primary">Adicionar</button>            
+        <input name="task" id="task" class="form-control mr-1 text-center" type="text" placeholder="Digite seu item" required><button type="submit" class="btn btn-primary">Adicionar</button>            
     </div>
 <?= form_close();?>
 
@@ -36,14 +36,22 @@ echo form_open('main/create')
         <tr>
             <td class="text-center"> <?= $item->item?> </td>
             <td>&nbsp;</td>
-            <td class="text-center"><a href="<?= site_url('main/delete/'. $item->id_item)?>" class="btn btn-danger">x</a>
-            <a href="<?= site_url('main/delete')?>" class="btn btn-success">V</a></td>
-           
+            <td class="text-center">
+                <?php if(empty($item->finished_at)) :?> 
+                    <a href="<?= site_url('main/taskComplete/'. $item->id_item)?>" class="btn-sm btn-primary mx-2 text-decoration-none"> 
+                        <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                    </a>  
+                <?php else:?>  
+                    <span class="btn-sm btn-success mx-2 "> <i class="fa fa-refresh" aria-hidden="true"></i></span>
+                <?php endif;?>    
+                <a href="<?= site_url('main/delete/'. $item->id_item)?>" class="btn-sm btn-danger mx-2 text-decoration-none">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </a>
+            </td>
         </tr>
       <?php endforeach;?>
     </tbody>
 </table>
-
 
 <p> N.º de itens: <strong></strong><?= count($items)?> </p>
 <?php endif;?>

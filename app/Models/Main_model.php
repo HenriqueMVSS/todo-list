@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class Main_model extends Model {
 
-    protected $table = 'list';
+    protected $table = 'item';
     protected $id = 'id_item';
     protected $allowedFields = ['item', 'created_at'];
 
